@@ -1,50 +1,79 @@
-# Welcome to your Expo app 👋
+# MovieFlix 🎬
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native (Expo) movie browsing app with a dark-themed UI, powered by **The Movie Database (TMDB) API**. Browse popular movies, search for titles, and discover new films.
 
-## Get started
+## Tech Stack
 
-1. Install dependencies
+- **[Expo](https://expo.dev) ~54** with **React Native 0.81**
+- **[expo-router](https://docs.expo.dev/router/introduction/)** — file-based routing
+- **[NativeWind](https://www.nativewind.dev/) v4** — Tailwind CSS for React Native
+- **[TMDB API](https://developer.themoviedb.org/)** — movie data
+- **`react-native-reanimated`** — animations
+- **TypeScript**
+
+## Features
+
+- **Home** — grid of popular movies from TMDB
+- **Search** — debounced search with real-time results
+- **Movie Cards** — poster, title, rating, release year
+- **Custom Tab Bar** — animated bottom navigation with dark styling
+- **Dark Theme** — custom color palette throughout
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- A [TMDB API Bearer Token](https://developer.themoviedb.org/)
+
+### Setup
+
+1. Clone the repo and install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Create an `.env` file in the project root:
+
+   ```env
+   EXPO_PUBLIC_MOVIE_API_KEY=your_tmdb_api_bearer_token_here
+   ```
+
+3. Start the dev server:
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+   Press **a** (Android), **i** (iOS), or **w** (web) to open the app.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Scripts
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+| Command | Description |
+|---|---|
+| `npm start` | Start Expo dev server |
+| `npm run android` | Start on Android |
+| `npm run ios` | Start on iOS |
+| `npm run web` | Start on Web |
+| `npm run lint` | Run ESLint |
 
-## Get a fresh project
+## Project Structure
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+app/                  # expo-router file-based routes
+  (tabs)/             # Bottom tab screens (Home, Search, Saved, Profile)
+  movies/[id].tsx     # Movie detail page
+components/           # Reusable UI components
+services/             # TMDB API client & useFetch hook
+interfaces/           # TypeScript type definitions
+constants/            # Image & icon imports
+assets/               # Images and icons
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Status
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- ✅ Home / Search screens
+- 🔲 Saved screen (placeholder)
+- 🔲 Profile screen (placeholder)
+- 🔲 Movie detail screen (placeholder)
