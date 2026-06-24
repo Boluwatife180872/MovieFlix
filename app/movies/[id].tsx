@@ -13,6 +13,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface MovieInfoProps {
   label: string;
@@ -36,6 +37,7 @@ const MovieDetails = () => {
     fetchMovieDetails(id as string),
   );
 
+  const insets = useSafeAreaInsets();
   const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
@@ -81,7 +83,7 @@ const MovieDetails = () => {
     <View className="bg-primary flex-1">
       <ScrollView
         contentContainerStyle={{
-          paddingBottom: 80,
+          paddingBottom: insets.bottom + 80,
         }}
       >
         <View>
@@ -97,22 +99,24 @@ const MovieDetails = () => {
                 style={{ width: "100%", height: 550 }}
                 resizeMode="stretch"
               />
-              <TouchableOpacity
-                className={`absolute top-4 right-4 rounded-full p-2.5 ${isSaved ? "bg-accent" : "bg-black/50"}`}
-                onPress={toggleSave}
-              >
-                <Image
-                  source={icons.save}
-                  className="size-6"
-                  tintColor={isSaved ? "#030014" : "#fff"}
-                />
-              </TouchableOpacity>
             </View>
           )}
         </View>
 
         <View className="flex-col items-start justify-center mt-5 px-5">
-          <Text className="text-white text-xl font-bold">{movie?.title}</Text>
+          <View className="flex-row items-center justify-between w-full">
+            <Text className="text-white text-xl font-bold flex-1 mr-2">{movie?.title}</Text>
+            <TouchableOpacity
+              className={`rounded-full p-2.5 ${isSaved ? "bg-accent" : "bg-black/50"}`}
+              onPress={toggleSave}
+            >
+              <Image
+                source={icons.save}
+                className="size-6"
+                tintColor={isSaved ? "#030014" : "#fff"}
+              />
+            </TouchableOpacity>
+          </View>
 
           <View className="flex-row items-center gap-x-1 mt-2">
             <Text className="text-light-200 text-sm">
@@ -160,7 +164,8 @@ const MovieDetails = () => {
       </ScrollView>
 
       <TouchableOpacity
-        className="absolute bottom-5 left-0 right-0 mx-5 bg-accent rounded-lg py-3.5 flex flex-row items-center justify-center gap-x-0.5"
+        style={{ bottom: insets.bottom + 16 }}
+        className="absolute left-0 right-0 mx-5 bg-accent rounded-lg py-3.5 flex flex-row items-center justify-center gap-x-0.5"
         onPress={router.back}
       >
         <Image

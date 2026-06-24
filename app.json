@@ -8,6 +8,12 @@
     "scheme": "movieapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/e64f85e4-5c0c-4079-bf21-60625e100b42"
+    },
     "ios": {
       "supportsTablet": true
     },
