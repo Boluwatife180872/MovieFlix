@@ -1,6 +1,12 @@
 # MovieFlix 🎬
 
-A React Native (Expo) movie browsing app with a dark-themed UI, powered by **The Movie Database (TMDB) API**. Browse popular movies, search for titles, and discover new films.
+A sleek, dark-themed movie browsing app built with **React Native (Expo)** and powered by **The Movie Database (TMDB) API**. Browse popular movies, search for titles, save favorites, and discover your next watch.
+
+## Screenshots
+
+| Home | Search | Movie Detail |
+|:---:|:---:|:---:|
+| ![](assets/images/Screenshot%202026-06-24%20151008.png) | ![](assets/images/Screenshot%202026-06-24%20151035.png) | ![](assets/images/Screenshot%202026-06-24%20151051.png) |
 
 ## Tech Stack
 
